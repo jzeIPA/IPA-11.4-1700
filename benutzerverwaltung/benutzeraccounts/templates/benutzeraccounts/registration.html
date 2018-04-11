@@ -1,0 +1,38 @@
+{% extends 'basesite.html' %}
+
+{% block head %}
+  <title>Registrierung</title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="col-lg-12">
+    <h1 style="margin-bottom: 0.5em">Registrierung</h1>
+    <p style="margin-bottom: 0.5em;">
+        Mit einem <b>&#10033;</b> gekennzeichnete Felder müssen ausgefüllt werden.
+    </p>
+    <p style="margin-bottom: 1.5em;">
+        Ihr Passwort:
+    </p>
+    <p>
+        Ihr neues Passwort:
+          <li>muss mindestens acht Zeichen lang sein.
+          <li>darf nicht nur aus Zahlen bestehen.
+          <li>darf nicht zu ähnlich zu Ihren anderen persönlichen Informationen sein.
+          <li>darf nicht allgemein üblich sein.
+    </p>
+
+    <form method="post">
+      {% csrf_token %}
+      {{ form }}
+
+      <div style="clear: both;"></div>
+
+      <button style="margin-top: 1.75em; margin-bottom: 1.75em;" class="btn btn-success btn-sm" type="submit">Konto erstellen</button>
+      <a style="margin-left: 1em; margin-top: 1.5em; margin-bottom: 1.5em;" href="{% url 'user:login' %}" id="cancel" name="cancel" class="btn btn-default">Abbrechen</button></a>
+
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
